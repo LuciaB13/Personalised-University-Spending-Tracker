@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Spending Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="outcomeNotification" class="outcomeNotification">
+      <span id="notificationIcon"></span>
+      <span id="notificationMessage"></span>
+    </div>
+
+    <div class="page">
+      <h1>MONTHLY SPENDING TRACKER</h1>
+      <div class="privacy-badge">
+        🔒100% Private : Pure Browser Memory Processing 🔒
+      </div>
+
+      <div class="dropdown">
+        <input type="file" id="fileInput" accept=".csv" style="display: none" />
+        <button
+          class="dropbtn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload Bank Statement (CSV)
+        </button>
+      </div>
+
+      <div class="metrics">
+        <div class="card">
+          <div style="color: #64748b">Total Spent</div>
+          <div class="card-value debit" id="totalSpent">£0.00</div>
+        </div>
+        <div class="card">
+          <div style="color: #64748b">Transactions</div>
+          <div class="card-value" id="totalCount">0</div>
+        </div>
+      </div>
+
+      <div class="chart-container" id="chartContainer" style="display: none">
+        <h2>Where Your Money Is Going</h2>
+        <canvas id="spendingChart"></canvas>
+      </div>
+
+      <div class="filters">
+        <div class="category-dropdown">
+          <button class="category-btn" id="categoryButton">
+            All Categories ▾
+          </button>
+
+          <div class="category-content" id="categoryOptions"></div>
+        </div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search descriptions (e.g., Translink, Boojum)..."
+          style="flex: 1"
+          oninput="updateDisplay()"
+        />
+      </div>
+      <p class="category-change">Tap a category to change it</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="transactionTable">
+          <tr>
+            <td
+              colspan="4"
+              style="text-align: center; color: #64748b; padding: 2rem"
+            >
+              No statement loaded yet. Select a file to view spending.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Load PapaParse & PDF.js from CDNs without Node.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
