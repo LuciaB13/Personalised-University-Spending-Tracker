@@ -24,12 +24,12 @@ I also wanted more control over how my spending was categorised. The categories 
 
 ## Technologies
 
-* **HTML5** — webpage structure
-* **CSS3** — layout and styling
-* **JavaScript** — application logic and data processing
-* **PapaParse** — CSV parsing
-* **Chart.js** — data visualisation
-* **Git & GitHub** — version control
+* **HTML5**: webpage structure
+* **CSS3**: layout and styling
+* **JavaScript**: application logic and data processing
+* **PapaParse**: CSV parsing
+* **Chart.js**: data visualisation
+* **Git & GitHub**: version control
 
 ## How It Works
 
